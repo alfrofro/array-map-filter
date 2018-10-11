@@ -23,7 +23,11 @@ Sortie attendue:
 
  */
 
-function keepStarks(names) {
+function keepStarks (names) {
+  const onlyStarks = names.filter(function(name) {
+    return name.includes('Stark')
+  });
+  return onlyStarks;
 }
 
 // Ne pas modifier l'export

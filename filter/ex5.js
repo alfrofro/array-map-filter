@@ -38,8 +38,16 @@ Exemple d'entrée:
 
  */
 
-function searchWordFilter(items, search) {
+
+function searchWordFilter (items, search) {
+  const searchWords = items.filter(function(item) {
+    if (item.includes(search.charAt(0).toUpperCase() + search.slice(1) || search)) {
+      return items
+    }
+  });
+  return searchWords;
 }
+
 
 // Ne pas modifier l'export
 module.exports = searchWordFilter;

@@ -59,10 +59,24 @@ En sortie:
 
  */
 
-function getMoviesFreshness(movies) {
+function getMoviesFreshness (movies){
+  const getMoviesWithFreshness = movies.map(function(movie){
+    if (movie.rating < 60){
+      movie.label = 'rotten';
+    }
+
+    if ((movie.rating >= 60) && (movie.rating < 76)){
+      movie.label = 'fresh';
+    }
+
+    if (movie.rating > 75){
+      movie.label = 'certified fresh';
+    }
+
+    return movie;
+  });
+  return getMoviesWithFreshness;
 }
-
-
 
 // Ne pas modifier l'export
 module.exports = getMoviesFreshness;

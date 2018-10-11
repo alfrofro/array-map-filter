@@ -1,6 +1,6 @@
 /* Array.prototype.map ET filter - Exercice 1
 
-Il s'agit d'écrire une fonction getJediNames, qui reçoit en argument un tableau
+Il s'agit d'écrire une fonction getJedisNames, qui reçoit en argument un tableau
 de personnages de Star Wars (objets), chacun ayant deux propriétés :
 - name: nom du personnage
 - side: le côté de la Force où il se situe ('light' ou 'dark')
@@ -22,7 +22,14 @@ Sortie attendue:
 
 */
 
-function getJedisNames(characters) {
+function getJedisNames (characters) {
+  const realJedis = characters.filter(function(character) {
+    return character.side === 'light';
+  })
+  .map(function(character) {
+    return character.name;
+  });
+  return realJedis;
 }
 
 module.exports = getJedisNames;
